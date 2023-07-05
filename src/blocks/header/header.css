@@ -1,0 +1,13 @@
+.header {
+    display: block;
+    text-align: left;
+    max-width: 880px;
+    margin: auto;
+    border-bottom: 1px solid rgb(84, 84, 84, 0.7);
+
+}
+@media screen and (max-width: 630px) {
+    .header {
+            max-width: 320px;
+        }
+}
