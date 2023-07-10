@@ -17,4 +17,4 @@ function PopupWithForm(props) {
     );
 }
 
-export default PopupWitnForm
+export default PopupWithForm
