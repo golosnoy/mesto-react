@@ -1,6 +1,6 @@
 import React from "react";
 
-function PopupWitnForm(props) {
+function PopupWithForm(props) {
     const {onClose, isOpened, styleClass, buttonText, children} = props;
 
     return (
