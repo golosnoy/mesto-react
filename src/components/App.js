@@ -11,8 +11,9 @@ function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+    const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
     const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
-    const [selectedCard, setSelectedCard] = useState("");
+    const [selectedCard, setSelectedCard] = useState({});
     
     
     const handleEditProfileClick = () => {
@@ -25,6 +26,10 @@ function App() {
 
     const handleEditAvatarClick = () => {
         setIsEditAvatarPopupOpen(true)
+    };
+
+    const handleDeleteContentClick = () => {
+        setIsConfirmationPopupOpen(true)
     };
 
     const closeAllPopups = () => {
@@ -47,6 +52,7 @@ function App() {
                     onEditProfile={handleEditProfileClick}
                     onAddPlace={handleAddPlaceClick}
                     onEditAvatar={handleEditAvatarClick}
+                    onConfirmation={handleDeleteContentClick}
                     onImagePopup={handleCardClick}
                     />
                 <Footer />
@@ -66,7 +72,7 @@ function App() {
                 children={<><input className="popup__input" type="url" name="profile_avatar" placeholder="Ссылка на аватар" id="profile_avatar" minLength={2} required />
                 <span className="popup__input-error popup__input-error_profile_avatar"></span></>}
                 />
-                <PopupWithForm onClose={closeAllPopups} isOpened={isEditAvatarPopupOpen} styleClass="delete_confirmation" title="Вы уверены?" name="edit_delete_confirmation" buttonText="Да" />
+                <PopupWithForm onClose={closeAllPopups} isOpened={isConfirmationPopupOpen} styleClass="delete_confirmation" title="Вы уверены?" name="edit_delete_confirmation" buttonText="Да" />
                 <ImagePopup onClose={closeAllPopups} isOpened={isImagePopupOpen} card={selectedCard} /> 
             </div> 
         </div>

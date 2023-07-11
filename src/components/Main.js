@@ -45,7 +45,7 @@ function Main(props) {
         <section className="profile">
             <div className="profile__card">
                 <div className="profile__avatar-container">
-                  <img  className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }} />
+                  <img  className="profile__avatar" src={userAvatar} alt={userName} />
                   <div onClick={onEditAvatar} className="profile__avatar-overlay"></div>
                 </div>
                 <div className="profile__info">

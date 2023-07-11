@@ -107,10 +107,7 @@ class Api {
         avatar: url
       })
     })
-    .then(this.checkRes)
-    .catch((err) =>{
-      console.log(err);
-    });
+    .then(this.checkRes);
   }
 }
 
