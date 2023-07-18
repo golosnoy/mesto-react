@@ -22,7 +22,7 @@ function App() {
     const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState({});
     const [currentUser, setCurrentUser] = useState({});
-    const [ cards, setCards ] = useState([]);
+    const [cards, setCards] = useState([]);
     
     React.useEffect(() => {
         api.getUserInfo().then((res) => {setCurrentUser(res)})
@@ -87,15 +87,12 @@ function App() {
             setCards([res, ...cards]); 
         })
         closeAllPopups();
-
     };
 
-    
     const handleUpdateUser = (newUserData) => {
         api.patchUserInfo(newUserData).then((res) => {setCurrentUser(res)})
         .catch((err) =>{console.log(err)});
         closeAllPopups();
-
     };
 
     const handleUpdateAvatar = (newAvatar) => {
@@ -125,14 +122,6 @@ function App() {
                         <EditProfilePopup isOpened={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} /> 
                         <EditAvatarPopup isOpened={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
                         <AddPlacePopup isOpened={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} />
-
-
-                        {/* <PopupWithForm onClose={closeAllPopups} onSubmit={handleSubmitContent} isOpened={isAddPlacePopupOpen} styleClass="content" title="Новое место" name="new_content" buttonText="Создать"
-                        children={<><input className="popup__input" type="text" name="place_name" placeholder="Название" id="place_name" minLength={2} maxLength={30} required/>
-                        <span className="popup__input-error popup__input-error_place_name"></span>
-                        <input className="popup__input" type="url" name="img_url" placeholder="Ссылка на картинку" id="img_url" required/>
-                        <span className="popup__input-error popup__input-error_img_url"></span></>}
-                        /> */}
                         <PopupWithForm onClose={closeAllPopups} isOpened={isConfirmationPopupOpen} styleClass="delete_confirmation" title="Вы уверены?" name="edit_delete_confirmation" buttonText="Да" />
                         <ImagePopup onClose={closeAllPopups} isOpened={isImagePopupOpen} card={selectedCard} /> 
                     </div> 
