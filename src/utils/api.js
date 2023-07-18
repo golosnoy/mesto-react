@@ -75,25 +75,14 @@ class Api {
     return Promise.all([this.getCardsData(), this.getUserInfo()]);
   }
 
-  likeCard(cardId) {
+  changeLikeCardStatus(cardId, isLiked) {
     return fetch(`${this._domen}/cards/${cardId}/likes`, {
-      method: 'PUT',
+      method: (isLiked ? 'PUT' : 'DELETE'),
       headers: {
         authorization: this._token
       }
     })
     .then(this.checkRes);
-  }
-
-  dislikeCard(cardId) {
-    return fetch(`${this._domen}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: {
-        authorization: this._token
-      }
-    })
-    .then(this.checkRes)
-    .then((res) => (console.log(res)));
   }
 
   updateAvatar(url) {
