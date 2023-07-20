@@ -92,16 +92,19 @@ function App() {
     };
 
     const handleUpdateUser = (newUserData) => {
-        api.patchUserInfo(newUserData).then((res) => {setCurrentUser(res)})
+        api.patchUserInfo(newUserData).then((res) => {
+            setCurrentUser(res);
+            closeAllPopups();
+        })
         .catch((err) =>{console.log(err)});
-        closeAllPopups();
     };
 
     const handleUpdateAvatar = (newAvatar) => {
-        api.updateAvatar(newAvatar).then((res) => {setCurrentUser(res)})
+        api.updateAvatar(newAvatar).then((res) => {
+            setCurrentUser(res);
+            closeAllPopups();
+        })
         .catch((err) =>{console.log(err)});
-        closeAllPopups();
-
     };
 
     return (
