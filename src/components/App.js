@@ -54,6 +54,7 @@ function App() {
             }
     }, [loggedIn])
        
+    
     React.useEffect(() => {
         api.getUserInfo().then((res) => {setCurrentUser(res)})
         .catch((err) =>{console.log(err)});
